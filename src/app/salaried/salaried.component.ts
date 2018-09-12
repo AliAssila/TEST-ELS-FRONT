@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {SalariedService} from './salaried.service';
-import {Salaried} from './salaried.model';
 
 @Component({
   selector: 'app-salaried',
@@ -18,7 +17,7 @@ export class SalariedComponent implements OnInit {
       });
     });
   }
-  filerByCreteria(creteria: string){
+  filerByCreteria(creteria: string) {
     this.salariedService.findAllSalariedNotDuplcated(creteria).subscribe(value => {
       this.salarieds$ = value;
     });
