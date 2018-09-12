@@ -3,16 +3,25 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import {SalariedComponent} from './salaried/salaried.component';
+import {AppRoutingModule} from './app-routing.module';
+import {SalariedService} from './salaried/salaried.service';
+import {HttpClientModule} from '@angular/common/http';
+import {SharedModule} from './shared/SharedModule';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SalariedComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    SharedModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [SalariedService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
