@@ -14,10 +14,31 @@
     "description" : "web"
   },
   {
-    "id" :"5b97a5b97a49aacs3dddc676c",
+    "id" : "5b97a5b97a49aacs3dddc676c",
     "fullname" : "smith",
     "address" : "london",
     "category" : "scrum master",
-    "description" : "management"
+    "description" : "web"
+  },
+  {
+    "id" : "5b97a49aa66f3ddbc4aac01c",
+    "fullname" : "ali",
+    "address" : "london",
+    "category" : "ProductOwner",
+    "description" : "the boss"
+  },
+  {
+    "id" :"5b97ab64c239eddcb1dc676c",
+    "fullname" : "assila",
+    "address" : "Tunis",
+    "category" : "ProductOwner",
+    "description" : "web"
+  },
+  {
+    "id" :"5b97a323232efefedc676c",
+    "fullname" : "harizi",
+    "address" : "Tunis",
+    "category" : "BizDev",
+    "description" : "commerce"
   }
 ]
