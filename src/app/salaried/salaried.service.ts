@@ -6,17 +6,16 @@ import {Salaried} from './salaried.model';
 import {SERVER_API_URL} from '../app.constants';
 @Injectable()
 export class SalariedService {
-  private resourceUrl = SERVER_API_URL + 'api/salaried/';
+  private resourceUrl = SERVER_API_URL + 'api/salaried';
 
   constructor(private http: HttpClient) {}
-
+  findAll(): Observable<HttpResponse<Salaried[]>> {
+    return this.http.get<HttpResponse<any>>(this.resourceUrl);
+  }
   create(salarieds: Salaried[]): Observable<HttpResponse<Salaried[]>> {
     return this.http.post<Salaried[]>(this.resourceUrl, salarieds, { observe: 'response' });
   }
   findAllSalariedNotDuplcated(creteria: string): Observable<HttpResponse<any>> {
-    return this.http.get<HttpResponse<any>>(this.resourceUrl + creteria, );
-  }
-  getJSON(): Observable<any> {
-    return this.http.get('./assets/mydata.json');
+    return this.http.get<HttpResponse<any>>(this.resourceUrl + '/' + creteria );
   }
 }

@@ -4,6 +4,10 @@
       {{ pageTitle }}
     </h1>
   </div>
+  <div>
+    <input type="file" (change)="onFileSelected($event)"/>
+    <button class="btn btn-success" (click)="onUpload()">Upload</button>
+  </div>
   <div class="card-body table-responsive" *ngIf="salarieds$">
     <div class="input-group input-group-sm">
       <div class="input-group-append">
@@ -30,6 +34,12 @@
                   class="btn btn-primary"
                   style="margin-right: 5px"
                   (click)="filerByCreteria('description');">DESCRIPTION</button>
+        </div>
+        <div class="input-group">
+          <button type="button"
+                  class="btn btn-warning"
+                  style="margin-right: 5px"
+                  (click)="loadAllData();">RESET</button>
         </div>
       </div>
     </div>

@@ -9,12 +9,34 @@ import {SalariedService} from './salaried.service';
 export class SalariedComponent implements OnInit {
   pageTitle = 'Available Salaried';
   salarieds$: any ;
+  data: any ;
   constructor(private salariedService: SalariedService) {}
   ngOnInit() {
-    this.salariedService.getJSON().subscribe(data => {
-      this.salariedService.create(data).subscribe(response => {
-        this.salarieds$ = response.body;
-      });
+  this.loadAllData();
+  }
+  loadAllData() {
+    this.salariedService.findAll().subscribe(salarieds => {
+      this.salarieds$ = salarieds;
+    });
+  }
+  onFileSelected(event) {
+    const file = event.srcElement.files[0];
+    if (!file) {
+      return;
+    }
+    const that = this;
+    const reader = new FileReader();
+    reader.readAsText(file, 'UTF-8');
+    reader.onload = function (loadEvent: any) {
+      that.data = JSON.parse(loadEvent.target.result);
+    };
+    reader.onerror = function (evt) {
+      console.log('error reading file');
+    };
+  }
+  onUpload() {
+    this.salariedService.create(this.data).subscribe(response => {
+      this.salarieds$ = response.body;
     });
   }
   filerByCreteria(creteria: string) {
